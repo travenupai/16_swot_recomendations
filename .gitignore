@@ -5,3 +5,6 @@ uv.lock
 /.venv/
 my_llm.py
 analise_swot.md
+uv.lock
+
+#uv.lock nao pode ir para o streamlit

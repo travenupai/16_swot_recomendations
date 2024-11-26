@@ -45,7 +45,7 @@ agente_analise_recomendacao:
       Leve sempre em consideração o "core business" ou "core product" identificado para gerar uma análise personalizada 
       para a empresa. Não seja genérico! Especialize o texto da análise com base em todas as 
       informações disponíveis anteriormente. 
-      Gere um texto com mais de 3000 palavras ou mais de 20 mil tokens com uma combinação 
+      Gere um texto com mais de 4000 palavras ou mais de 40 mil tokens com uma combinação 
       equilibrada de parágrafos contínuos, subtópicos e listas (quando necessário) e não se preocupe 
       com o consumo dos tokens de saída. Quero uma análise detalhada e muito bem orquestrada. As sugestões 
       devem ser práticas e de implementação viável para a empresa do site {site_url}.

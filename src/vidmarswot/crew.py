@@ -5,6 +5,7 @@ from crewai.project import CrewBase, agent, crew, task
 from dotenv import load_dotenv
 from crewai_tools import (SerperDevTool, ScrapeWebsiteTool,ScrapeElementFromWebsiteTool)
 from langchain_openai import ChatOpenAI
+from agent_watch import AgentWatchTool
 
 
 # from vidmarswot.my_llm import MyLLM
@@ -28,6 +29,12 @@ search_tool = SerperDevTool()
 scrape_tool = ScrapeWebsiteTool()
 scrape_element_tool = ScrapeElementFromWebsiteTool()
 
+agent_watch_tool = AgentWatchTool(
+    log_file='agent_watch.log',  # Nome do arquivo de log para armazenar métricas
+    streamlit_dashboard=True    # Habilitar dashboard em Streamlit
+)
+
+
 
 @CrewBase
 class VidmarswotCrew():
@@ -37,7 +44,7 @@ class VidmarswotCrew():
 	def agente_extracao(self) -> Agent:
 		return Agent(
 			config=self.agents_config['agente_extracao'],
-			tools=[search_tool], # Example of custom tool, loaded on the beginning of file
+			tools=[search_tool, scrape_tool, scrape_element_tool], # Example of custom tool, loaded on the beginning of file
 			verbose=True,
 			allow_delegation=False,
 			allow_interruption=True,
@@ -50,7 +57,7 @@ class VidmarswotCrew():
 	def analista_swot(self) -> Agent:
 		return Agent(
 			config=self.agents_config['analista_swot'],
-			tools=[scrape_tool],
+			tools=[search_tool, scrape_tool, scrape_element_tool],
 			verbose=True,
 			allow_delegation=False,
 			allow_interruption=True,

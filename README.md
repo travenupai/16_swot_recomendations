@@ -10,11 +10,24 @@ criar um NOVO projeto:
 Crie um diretório na pasta projetos python e de um número sequencial.
 
 2. NO TERMINAL:
-pip install crewai    
-python.exe -m pip install --upgrade pip
-pip install crewai crewai-tools
-pip install --upgrade crewai crewai-tools
-crewai install
+
+uv init
+uv add crewai
+.venv/Scripts/activate
+
+crewai create crew PROJETO
+
+cd PROJETO
+python -m venv .venv
+.venv/Scripts/activate
+uv add crewai
+uv add crewai-tools
+uv add streamlit
+uv add python-docx
+uv add agent-watch
+uv --upgrade crewai crewai-tools
+
+
 
 3. ATENCAO: SÓ PRECISA DAR O CREWAI INSTALL APENAS NO COMEÇO OU QUANDO NOVO pyproject ou novo venv.
 SE VOCÊ CRIA UM NOVO PROJETO OU FLOW OU PIPELINE, DE ESSES COMANDOS:
@@ -28,21 +41,8 @@ crewai create pipeline nome_do_pipeline
 AO USAR O CREWAI CREW CREATE, SE CRIA UM NOVO DIRETORIO AUTOMATICAMENTE
 O DIRETÓRIO RAIZ É O NOVO DIRETÓRIO CRIADO.
 
-4. PARA CRIAR UM AMBIENTE VIRTUAL .VENV (SE CRIA O VENV NO DIRETÓRIO RAIZ):
-
-cd novo_diretório
-
-python -m venv .venv
-.venv\Scripts\activate
-pip install uv
-crewai install
-pip install crewai crewai-tools
-uv lock     # um chamado se abre no antivirus para liberar forever
-uv sync     # começa a roda muitas linhas de código pela primeira vez 
 
 
-Ensure you have Python >=3.10 <=3.13 installed on your system. 
-This project uses [UV](https://docs.astral.sh/uv/) for dependency management and package handling, offering a seamless setup and execution experience.
 
 5. Para rodar o programa:
 
