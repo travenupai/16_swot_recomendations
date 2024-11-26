@@ -1,7 +1,7 @@
 # app.py
 
 import os
-from src.vidmarswot.crew import SwotCrew
+from src.vidmarswot.crew import VidmarswotCrew
 import streamlit as st
 from io import BytesIO
 from zipfile import ZipFile
@@ -52,7 +52,7 @@ if st.button("Executar Análise"):
     with st.spinner("5 agentes trabalhando vários milhões de tokens... por favor, aguarde de 5 a 20 min."):
         if 'SwotCrew' in globals():
             # Executa o pipeline com a URL fornecida
-            crew_instance = SwotCrew().crew()  # Cria uma instância da Crew
+            crew_instance = VidmarswotCrew().crew()  # Cria uma instância da Crew
             result = crew_instance.kickoff(inputs={'site_url': site_url})  # Usa kickoff para iniciar a execução
             
             # Verifica se o pipeline retornou algum resultado
@@ -61,7 +61,7 @@ if st.button("Executar Análise"):
                 
                 # Atualize o session_state com os resultados
                 st.session_state.analise_realizada = True
-                st.session_state.arquivos_md = ["analisar_recomendar_swot.md", "analise_swot.md", "financiamento_estrategico.md", "pesquisar_solucoes_ia.md"]
+                st.session_state.arquivos_md = ["analise_swot.md"]
         else:
             st.error("A análise não pôde ser executada devido a problemas na importação do módulo SwotCrew.")
 
@@ -71,6 +71,6 @@ if st.session_state.analise_realizada:
     st.download_button(
         label="Baixar todos os documentos em ZIP",
         data=zip_buffer,
-        file_name="swot_ia.zip",
+        file_name="swot_recommendation_ia.zip",
         mime="application/zip"
     )
