@@ -1,7 +1,7 @@
 .env
 __pycache__/
 .venv
+uv.lock
 /.venv/
 my_llm.py
 analise_swot.md
-uv.lock
