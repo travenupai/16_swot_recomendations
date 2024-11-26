@@ -1,0 +1,57 @@
+extrair_informacoes_site:
+  description: >
+      Realizar uma extração detalhada de informações do site {site_url} da empresa. Focar em coletar dados sobre produtos,
+      serviços, parcerias, valores, visão estratégica, estudos de caso, impacto social, feedbacks de clientes, concorrentes,
+      e notícias recentes. Esta extração fornecerá a base para uma análise SWOT detalhada, identificando forças, fraquezas,
+      oportunidades e ameaças relevantes para a empresa.
+  expected_output: >
+      Relatório detalhado com as informações coletadas, contendo as seguintes seções:
+      - Produtos e Serviços (descrevendo o portfólio da empresa e qualquer informação que indique forças ou fraquezas)
+      - Missão, Visão e Valores (para entender a identidade da empresa e possíveis forças)
+      - Parcerias e Investimentos (para identificar oportunidades e forças)
+      - Impacto Social e Sustentabilidade (como forças e oportunidades)
+      - Feedbacks de Clientes (indicando forças e fraquezas)
+      - Concorrentes e Ameaças do Mercado (para mapear possíveis ameaças)
+      - Notícias e Atualizações Recentes (para identificar oportunidades e ameaças)
+  agent: agente_extracao
+
+analise_swot:
+  description: >
+      Analisar as informações coletadas e fornecer uma análise estratégica detalhada usando a matriz SWOT.
+      A análise deve identificar:
+      - **Forças**: Vantagens competitivas da empresa, produtos diferenciados, parcerias estratégicas, reconhecimento de marca, etc.
+      - **Fraquezas**: Áreas que precisam de melhoria, feedbacks negativos dos clientes, limitações operacionais, etc.
+      - **Oportunidades**: Possibilidades de crescimento, tendências de mercado favoráveis, novas demandas do mercado, etc.
+      - **Ameaças**: Concorrência, riscos econômicos, mudanças regulatórias, e possíveis desafios externos.
+      Justifique cada item com base nos dados coletados e forneça recomendações práticas.
+
+  expected_output: >
+      Relatório estratégico do site {site_url}, muito detalhado e contendo as seguintes seções:
+      - **Introdução**: Resumo do objetivo da análise SWOT.
+      - **Forças**: Lista das principais forças da empresa com justificativas.
+      - **Fraquezas**: Lista das fraquezas com explicações e implicações.
+      - **Oportunidades**: Oportunidades de mercado e crescimento identificadas.
+      - **Ameaças**: Principais ameaças e como elas podem impactar a empresa.
+      - **Conclusão e Recomendações**: Resumo estratégico e recomendações para a empresa com base na análise.      
+  agent: analista_swot
+
+analisar_recomendar:
+  description: >
+      Gerar um relatório final e consolidar todas as informações extraídas, pesquisadas e analisadas 
+           pelos agentes anteriores. Fornecer recomendações detalhadas sobre como integrar IA de maneira 
+           econômica na empresa. O relatório deve incluir um plano de ação e sugestões específicas.
+  expected_output: >
+      Relatório muito detalhado com recomendações sobre a empresa do site {site_url}:
+          1 - Soluções de integração de IA;
+          2 - Análise SWOT;
+              No item acima, não se preocupe com o consumo dos tokens de saída e não seja genérico. 
+              Quero uma análise consistente e detalhada. Quero números consistentes e reais possibilidades
+              e sugestões. Esta é a parte mais importante do projeto, use toda a sua capacidade aqui;
+          3 - Plano de ação;
+          4 - Possibilidades de financiamento;
+              No item acima, não se preocupe com o consumo dos tokens de saída e não seja genérico. 
+              Quero números consistentes e reais possibilidades;
+          5 - Possibilidades de ação;
+          6 - Sugestões específicas.
+          A saída deve ser em Markdown. É muito importante que o texto não contenha coisas como "‘‘‘ markdown " e "'''". """ ,
+  agent: agente_analise_recomendacao  

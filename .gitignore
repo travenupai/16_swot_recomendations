@@ -1,0 +1,7 @@
+.env
+__pycache__/
+.venv
+/.venv/
+my_llm.py
+analise_swot.md
+uv lock
