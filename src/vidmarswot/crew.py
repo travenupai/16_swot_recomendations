@@ -5,7 +5,6 @@ from crewai.project import CrewBase, agent, crew, task
 from dotenv import load_dotenv
 from crewai_tools import (SerperDevTool, ScrapeWebsiteTool,ScrapeElementFromWebsiteTool)
 from langchain_openai import ChatOpenAI
-from agent_watch import AgentWatchTool
 
 
 # from vidmarswot.my_llm import MyLLM
@@ -28,12 +27,6 @@ gpt_o1_mini           = ChatOpenAI(model_name="o1-mini", openai_api_key=api_key)
 search_tool = SerperDevTool()
 scrape_tool = ScrapeWebsiteTool()
 scrape_element_tool = ScrapeElementFromWebsiteTool()
-
-agent_watch_tool = AgentWatchTool(
-    log_file='agent_watch.log',  # Nome do arquivo de log para armazenar métricas
-    streamlit_dashboard=True    # Habilitar dashboard em Streamlit
-)
-
 
 
 @CrewBase
