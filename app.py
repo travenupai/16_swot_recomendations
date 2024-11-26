@@ -46,11 +46,13 @@ def criar_zip(arquivos_md):
     zip_buffer.seek(0)
     return zip_buffer
 
+# AQUI EMBAIXO TEM 2 LOCAIS PARA AJUSTAR!! VIDMAR SWOT CREW!!!
+
 # Botão para iniciar a execução do pipeline
 if st.button("Executar Análise"):
     # Exibe um spinner enquanto o pipeline está em execução
     with st.spinner("5 agentes trabalhando vários milhões de tokens... por favor, aguarde de 5 a 20 min."):
-        if 'SwotCrew' in globals():
+        if 'VidmarswotCrew' in globals():
             # Executa o pipeline com a URL fornecida
             crew_instance = VidmarswotCrew().crew()  # Cria uma instância da Crew
             result = crew_instance.kickoff(inputs={'site_url': site_url})  # Usa kickoff para iniciar a execução
